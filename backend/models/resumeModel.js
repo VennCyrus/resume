@@ -15,7 +15,7 @@ const resumeSchema = new mongoose.Schema({
     },
     template: {
         theme: String,
-        colorPalette: [string]
+        colorPalette: [String]
     },
 
     profileinfo: {
@@ -46,42 +46,42 @@ const resumeSchema = new mongoose.Schema({
         {
             degree: String,
             institution: String,
-            startDate: string,
-            endDate: string,
+            startDate: String,
+            endDate: String,
         },  
     ],
 
     skills: [
-        {name: string,
+        {name: String,
             progress:Number,
         },
     ],
 
     projects: [
         {
-            title: string,
-            description: string,
-            githubLink: string,
-            liveDemo: string,
+            title: String,
+            description: String,
+            githubLink: String,
+            liveDemo: String,
         },
     ],
 
     certifications: [
         {
-            title: string,
-            issuer: string,
-            year: string,
+            title: String,
+            issuer: String,
+            year: String,
         },
     ],
 
     languages: [
         {
-            name: string,
-            proficiency: number,
+            name: String,
+            proficiency: Number,
         },
     ],
     
-    interests: [string],
+    interests: [String],
 },
 {
     timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}
