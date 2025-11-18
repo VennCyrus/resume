@@ -6,7 +6,7 @@ const resumeSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
-    resume: {
+    title: {
         type: String,
         required: true
     },
@@ -18,25 +18,31 @@ const resumeSchema = new mongoose.Schema({
         colorPalette: [String]
     },
 
-    profileinfo: {
-        name: String,
-        email: String,
-        phone: String,
-        address: String,
-        website: String,
-        linkedin: String,
-        github: String,
-        twitter: String,
-        facebook: String,
+    profileInfo: {
+        fullName: String,
+        designation: String,
+        summary: String,
+        profilePreviewUrl: String,
+        profileImg: String,
+        previewUrl: String,
     },
 
-    //WORKLK EXP
+    contactInfo: {
+        email: String,
+        phone: String,
+        location: String,
+        linkedin: String,
+        github: String,
+        website: String,
+    },
+
+    //WORK EXPERIENCE
     workExperience: [
         {
             company: String,
             role: String,
-            startDate: Date,
-            endDate: Date,
+            startDate: String,
+            endDate: String,
             description: String
         }   
     ],
@@ -52,8 +58,9 @@ const resumeSchema = new mongoose.Schema({
     ],
 
     skills: [
-        {name: String,
-            progress:Number,
+        {
+            name: String,
+            progress: Number,
         },
     ],
 
@@ -61,7 +68,7 @@ const resumeSchema = new mongoose.Schema({
         {
             title: String,
             description: String,
-            githubLink: String,
+            github: String,
             liveDemo: String,
         },
     ],
@@ -77,7 +84,7 @@ const resumeSchema = new mongoose.Schema({
     languages: [
         {
             name: String,
-            proficiency: Number,
+            progress: Number,
         },
     ],
     

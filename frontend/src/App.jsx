@@ -1,10 +1,14 @@
 import React from 'react'
-
+import { Routes, Route } from 'react-router-dom'
+import Landingpage from './pages/Landingpage'
+import UserProvider from './context/UserContext'
 const App = () => {
   return (
-    <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <UserProvider>
+<Routes>
+<Route path='/' element={<Landingpage />} /> 
+</Routes>
+    </UserProvider>
   )
 }
 

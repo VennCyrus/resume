@@ -64,7 +64,7 @@ export const createResume = async (req, res) => {
         languages: [
             {
                 name: '',
-                progress: '',
+                progress: 0,
             },
         ],
         interests: [''],
@@ -149,8 +149,8 @@ export const deleteResume = async (req, res) => {
         const uploadsFolder = path.join(process.cwd(), 'upload')
 
         //DELETE THUMBNAIL FUNCTION
-        if(resume.thumbnailLink) {
-            const oldThumbnail = path.join(uploadsFolder, path.basename(resume.thumbnailLink))
+        if(resume.thumbnaillink) {
+            const oldThumbnail = path.join(uploadsFolder, path.basename(resume.thumbnaillink))
             if(fs.existsSync(oldThumbnail)) {
                 fs.unlinkSync(oldThumbnail)
             }
@@ -166,7 +166,7 @@ export const deleteResume = async (req, res) => {
         //DELETE RESUME DOC
         const deletedResume = await Resume.findOneAndDelete({_id: req.params.id, userId: req.user.id})
          if(!deletedResume){
-            return res.stauts(404).json({message: 'Resume not found or not authorized'})
+            return res.status(404).json({message: 'Resume not found or not authorized'})
          }
         res.json({ message: 'Resume deleted successfully' })
     }
